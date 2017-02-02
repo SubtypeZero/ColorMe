@@ -1,0 +1,12 @@
+name: ColorMe
+main: me.subtypezero.color.ColorMe
+version: 1.1
+author: SubtypeZero
+description: A simple chat color selection plugin
+website: https://github.com/SubtypeZero/ColorMe
+
+commands:
+  color:
+    description: Opens the color menu.
+    aliases: [colorme]
+    usage: /<command>
