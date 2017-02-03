@@ -19,7 +19,7 @@ import java.util.Arrays;
  * Note that some chat colors do not have wool equivalents, so some names have been modified.
  * Colors that are generally not pleasing to the eye have been excluded from the color menu.
  */
-public class ColorMe extends JavaPlugin implements Listener {
+public class ColorMe extends JavaPlugin {
 	private Inventory colorInv;
 
 	public void onEnable() {
