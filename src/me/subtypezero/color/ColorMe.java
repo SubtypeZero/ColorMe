@@ -4,7 +4,6 @@ import me.subtypezero.color.cmd.ColorCMD;
 import me.subtypezero.color.event.UpdateColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -28,8 +27,11 @@ public class ColorMe extends JavaPlugin {
 		getCommand("color").setExecutor(new ColorCMD(colorInv));
 	}
 
+	/**
+	 * Initializes the ColorMenu inventory
+	 */
 	private void setupInventory() {
-		colorInv = Bukkit.createInventory(null, 27, "§2§lColor Menu");
+		colorInv = Bukkit.createInventory(null, 27, "Color Menu");
 
 		colorInv.setItem(1, createItem(14, "§cRed", "§f§l&c"));
 		colorInv.setItem(2, createItem(1, "§6Gold", "§f§l&6"));
@@ -40,8 +42,8 @@ public class ColorMe extends JavaPlugin {
 		colorInv.setItem(7, createItem(9, "§3Aqua", "§f§l&3"));
 
 		colorInv.setItem(10, createItem(11, "§9Blue", "§f§l&9"));
-		colorInv.setItem(11, createItem(6, "§dPink", "§f§l&d"));
-		colorInv.setItem(12, createItem(10, "§5Purple", "§f§l&5"));
+		colorInv.setItem(11, createItem(6, "§5Purple", "§f§l&5"));
+		colorInv.setItem(12, createItem(10, "§dPink", "§f§l&d"));
 
 		colorInv.setItem(14, createItem(0, "§fWhite", "§f§l&f"));
 		colorInv.setItem(15, createItem(8, "§7Light-Gray", "§f§l&7"));
@@ -50,6 +52,13 @@ public class ColorMe extends JavaPlugin {
 		Bukkit.getLogger().info("Finished creating color inventory.");
 	}
 
+	/**
+	 *
+	 * @param id {@code Material.WOOL} data value, see <a href="https://minecraft.gamepedia.com/Wool">Wool</a>
+	 * @param name the item display name
+	 * @param lore the item lore
+	 * @return
+	 */
 	private ItemStack createItem(int id, String name, String lore) {
 		ItemStack item = new ItemStack(Material.WOOL, 1, (short) id);
 		ItemMeta meta = item.getItemMeta();

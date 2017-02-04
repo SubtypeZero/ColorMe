@@ -23,12 +23,16 @@ import org.bukkit.inventory.ItemStack;
  */
 public class UpdateColor implements Listener {
 	private final Inventory colorMenu;
-	private HashMap<UUID, ChatColor> playerColor = new HashMap<>();
+	private HashMap<UUID, ChatColor> playerColors = new HashMap<>();
 
 	public UpdateColor(Inventory colorMenu) {
 		this.colorMenu = colorMenu;
 	}
 
+	/**
+	 * Handles inventory clicks for the ColorMenu and updates player chat colors
+	 * @param event
+	 */
 	@EventHandler
 	public void onColorSelect(InventoryClickEvent event) {
 		Player player = (Player) event.getWhoClicked();
@@ -60,7 +64,7 @@ public class UpdateColor implements Listener {
 					break;
 
 				case 10:
-					updateColor(player, ChatColor.LIGHT_PURPLE, "blue");
+					updateColor(player, ChatColor.BLUE, "blue");
 					break;
 				case 11:
 					updateColor(player, ChatColor.DARK_PURPLE, "purple");
@@ -82,24 +86,36 @@ public class UpdateColor implements Listener {
 		}
 	}
 
+	/**
+	 * Updates the target player's chat color
+	 * @param player the target player
+	 * @param color the {@code ChatColor} to use
+	 * @param desc the color description, to let the player know what their new chat color will be
+	 */
 	private void updateColor(Player player, ChatColor color, String desc) {
-		this.playerColor.put(player.getUniqueId(), color);
+		playerColors.put(player.getUniqueId(), color);
 		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 20.0F, 20.0F);
-		player.sendMessage("§5[§a§oColor§2Me§5]§f Your chat will now be in " + desc + "!");
+		player.sendMessage("§7[§2ColorMe§7]§a Your chat color has been set to " + desc + ".");
 	}
 
+	/**
+	 * Prefixes chat messages with the appropriate color for all players currently using this plugin
+	 * @param event
+	 */
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
 		UUID uuid = event.getPlayer().getUniqueId();
-		if (this.playerColor.containsKey(uuid)) {
-			event.setMessage(this.playerColor.get(uuid) + event.getMessage());
+		if (this.playerColors.containsKey(uuid)) {
+			event.setMessage(this.playerColors.get(uuid) + event.getMessage());
 		}
 	}
 
+	/**
+	 * Removes stolen Color Menu items from player inventories and armor slots
+	 * @param event
+	 */
 	@EventHandler
 	public void onInventoryClose(InventoryCloseEvent event) {
-
-		// Remove stolen color menu items from the player's inventory
 		ItemStack[] items = event.getPlayer().getInventory().getContents();
 		for (int i = 0; i < items.length; i++) {
 			if ((items[i] != null) && (colorMenu.contains(items[i]))) {
@@ -107,7 +123,6 @@ public class UpdateColor implements Listener {
 			}
 		}
 
-		// Remove stolen items from their armor slots too
 		items = event.getPlayer().getInventory().getArmorContents();
 		for (int i = 0; i < items.length; i++) {
 			if ((items[i] != null) && (colorMenu.contains(items[i]))) {
@@ -116,9 +131,12 @@ public class UpdateColor implements Listener {
 		}
 	}
 
+	/**
+	 * Removes stolen Color Menu items if they fall on the ground
+	 * @param event
+	 */
 	@EventHandler
 	public void onItemSpawn(ItemSpawnEvent event) {
-		// Remove stolen color menu items if they happen to fall on the ground
 		ItemStack item = event.getEntity().getItemStack();
 		if (item.getType() != Material.WOOL) {
 			return;
