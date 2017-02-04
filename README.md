@@ -11,10 +11,14 @@ You can use either of the following commands to open the ColorMe menu:
 
 To change your chat color, just click on one of available colors and your chat color will be updated automatically.
 
+FAQ
+---
 Q: How does this plugin color my chat?
+
 A: Every time you type a message in chat, ColorMe will put the color code you selected directly in front of the message.
 
 Q: Will I still be able to use other colors if I use this plugin?
+
 A: Yes, since ColorMe only puts the color code you selected in front of your message, you can still use chat formatting codes in your messages.
 
 Support
