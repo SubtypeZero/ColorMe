@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+ColorMe
+=======
 
-You can use the [editor on GitHub](https://github.com/SubtypeZero/ColorMe/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A simple Spigot plugin designed to make it easy to change your chat color.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Information
+-----------
+You can use either of the following commands to open the ColorMe menu:
+- /color
+- /colorme
 
-### Markdown
+To change your chat color, just click on one of available colors and your chat color will be updated automatically.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Q: How does this plugin color my chat?
+A: Every time you type a message in chat, ColorMe will put the color code you selected directly in front of the message.
 
-```markdown
-Syntax highlighted code block
+Q: Will I still be able to use other colors if I use this plugin?
+A: Yes, since ColorMe only puts the color code you selected in front of your message, you can still use chat formatting codes in your messages.
 
-# Header 1
-## Header 2
-### Header 3
+Support
+-------
+If you have any problems with this plugin or if you would like to request a feature, please open an issue and I'll see what I can do to help.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SubtypeZero/ColorMe/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Contributing
+------------
+If you'd like to fix an issue or add a new feature, feel free to fork this repository and make some changes. If you'd like to see your changes make their way into the offical build, submit a pull request and I'll take a look at your work.
