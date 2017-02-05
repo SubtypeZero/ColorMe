@@ -29,4 +29,4 @@ If you have any problems with this plugin or if you would like to request a feat
 
 Contributing
 ------------
-If you'd like to fix an issue or add a new feature, feel free to fork this repository and make some changes. If you'd like to see your changes make their way into the offical build, submit a pull request and I'll take a look at your work.
+If you'd like to fix an issue or add a new feature, feel free to fork this repository and make some changes. If you'd like to see your changes make their way into the official build, submit a pull request and I'll take a look at your work.
